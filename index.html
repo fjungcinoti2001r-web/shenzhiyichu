@@ -64,7 +64,7 @@
                 linear-gradient(180deg, #FDF9F3 0%, #EFE3D3 100%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             z-index: 99999; text-align: center; padding: 24px;
-            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s ease;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .intro-content {
             display: flex; flex-direction: column; align-items: center;
@@ -77,24 +77,20 @@
             display: flex; align-items: center; justify-content: center;
             overflow: hidden;
             box-shadow: 0 10px 24px rgba(226, 94, 27, 0.28), inset 0 2px 4px rgba(255,255,255,0.4);
-            animation: stampIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
         .intro-stamp img { width: 100%; height: 100%; object-fit: cover; }
         .intro-title-1 {
             font-size: 33px; font-weight: 900; letter-spacing: 5px;
             color: var(--accent); line-height: 1.15; margin-top: 4px;
             text-shadow: 0 2px 10px rgba(226, 94, 27, 0.15);
-            animation: riseIn 0.7s 0.08s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
         .intro-kicker {
             font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
             color: var(--muted); text-transform: uppercase;
-            animation: riseIn 0.7s 0.16s both;
         }
         .intro-rule {
             width: 64px; height: 2px;
             background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
-            animation: riseIn 0.7s 0.2s both;
         }
         .intro-enter-btn {
             margin-top: 14px; padding: 13px 44px;
@@ -102,26 +98,10 @@
             color: #fff; font-size: 15px; font-weight: 800; letter-spacing: 2px;
             border: none; border-radius: 999px; cursor: pointer;
             box-shadow: 0 10px 22px rgba(43, 156, 93, 0.32), inset 0 1px 1px rgba(255,255,255,0.3);
-            animation: riseIn 0.7s 0.28s both, pulseBtn 2.6s 1.2s ease-in-out infinite;
-            transition: transform 0.15s ease;
         }
-        .intro-enter-btn:active { transform: scale(0.96); }
         .intro-credit {
             margin-top: 8px; font-size: 10.5px; font-weight: 500;
             letter-spacing: 1.8px; color: rgba(106, 80, 67, 0.55);
-            animation: riseIn 0.7s 0.36s both;
-        }
-        @keyframes stampIn {
-            0% { transform: scale(1.4) rotate(-10deg); opacity: 0; }
-            100% { transform: scale(1) rotate(0); opacity: 1; }
-        }
-        @keyframes riseIn {
-            0% { transform: translateY(12px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes pulseBtn {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.035); }
         }
 
         /* ===== 主容器 ===== */
@@ -170,9 +150,7 @@
             display: flex; justify-content: center; align-items: center;
             font-size: 15px; cursor: pointer;
             box-shadow: 0 2px 6px rgba(80, 48, 25, 0.05);
-            transition: all 0.15s ease;
         }
-        .icon-btn:active { transform: scale(0.92); background: var(--paper-tray); }
         .icon-btn.cam {
             background: linear-gradient(135deg, #FFF6F8 0%, #FFE9EE 100%);
             border-color: rgba(217, 72, 104, 0.25);
@@ -200,7 +178,6 @@
             align-items: center;
             gap: 10px;
             white-space: nowrap;
-            animation: riseIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
         .bgm-popover.show {
             display: flex;
@@ -222,9 +199,8 @@
             border: 1px solid var(--line-strong); background: #FFFFFF;
             font-size: 13px; display: flex; align-items: center; justify-content: center;
             cursor: pointer; box-shadow: 0 1px 4px rgba(80, 48, 25, 0.06);
-            transition: transform 0.15s ease; flex-shrink: 0;
+            flex-shrink: 0;
         }
-        .bgm-pop-mute:active { transform: scale(0.9); }
         .bgm-slider-container {
             width: 105px; display: flex; align-items: center;
         }
@@ -235,14 +211,6 @@
         }
         #bgm-volume-slider::-webkit-slider-thumb {
             -webkit-appearance: none; appearance: none;
-            width: 16px; height: 16px; border-radius: 50%;
-            background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
-            border: 2px solid #FFFFFF;
-            box-shadow: 0 2px 6px rgba(226, 94, 27, 0.38);
-            cursor: pointer; transition: transform 0.15s ease;
-        }
-        #bgm-volume-slider::-webkit-slider-thumb:active { transform: scale(1.15); }
-        #bgm-volume-slider::-moz-range-thumb {
             width: 16px; height: 16px; border-radius: 50%;
             background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
             border: 2px solid #FFFFFF;
@@ -258,14 +226,14 @@
         #top-stage {
             height: 50%; min-height: 250px; width: 100%;
             position: relative; z-index: 10; flex-shrink: 0;
-            display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             background:
                 radial-gradient(circle at 50% 38%, #FFFFFF 0%, #FAF2E8 62%, #E9DAC7 100%);
             overflow: hidden;
         }
         #stage-bg-canvas {
             position: absolute; inset: 0; width: 100%; height: 100%;
-            z-index: 1; pointer-events: none; opacity: 0.85;
+            z-index: 1; pointer-events: none; object-fit: contain;
         }
         #top-stage::before {
             content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
@@ -274,20 +242,15 @@
 
         #model-display {
             position: relative; 
-            width: 250px; 
-            height: 88%;
-            top: 50px; /* 让人物自然下移踩在地毯上 */
+            width: 100%; 
+            height: 100%;
+            top: 0;
             z-index: 4; 
             display: flex; 
             justify-content: center; 
-            align-items: flex-end;
+            align-items: center;
             pointer-events: none;
             filter: drop-shadow(0 14px 18px rgba(70, 35, 18, 0.16));
-            animation: breathe 5.2s ease-in-out infinite;
-        }
-        @keyframes breathe {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
         }
         .model-layer, .layer-sub-item {
             position: absolute; width: 100%; height: 100%; bottom: 0; left: 0;
@@ -299,12 +262,11 @@
             width: 100%; height: 100%; object-fit: contain; display: block;
         }
         .layer-sub-item img, .layer-sub-item svg {
-            animation: layerBounce 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+            animation: layerFadeIn 0.2s ease both;
         }
-        @keyframes layerBounce {
-            0% { opacity: 0.35; transform: scale(0.96) translateY(2px); }
-            70% { transform: scale(1.02) translateY(-1px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+        @keyframes layerFadeIn {
+            0% { opacity: 0.35; }
+            100% { opacity: 1; }
         }
 
         /* ===== 衣橱区 ===== */
@@ -347,9 +309,7 @@
             background: #FFFFFF; color: var(--ink-soft);
             cursor: pointer; white-space: nowrap; flex-shrink: 0;
             box-shadow: 0 1px 2px rgba(80, 48, 25, 0.03);
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .pill-btn:active { transform: scale(0.95); }
         .pill-btn.active {
             background: linear-gradient(135deg, #FF7635 0%, #E25E1B 100%);
             border-color: #E25E1B; color: #FFFFFF;
@@ -387,16 +347,12 @@
             display: flex; flex-direction: column; align-items: center; justify-content: space-between;
             cursor: pointer; padding: 7px 6px 8px;
             box-shadow: var(--shadow-card);
-            transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
         }
-        .tall-card:active { transform: scale(0.96); }
-        
         .tall-card.selected {
             border-color: var(--accent);
             background: #FFFFFF;
             box-shadow: var(--shadow-hover);
-            transform: translateY(-2px);
         }
         .tall-card.selected::after {
             content: '✓'; position: absolute; top: -4px; right: -3px;
@@ -418,14 +374,9 @@
             position: relative; overflow: hidden;
             box-shadow: inset 0 1px 3px rgba(80, 48, 25, 0.05);
             border: 1px solid rgba(106, 80, 67, 0.05);
-            transition: background 0.2s ease;
         }
-        .tall-card.selected .card-icon {
-            background: var(--accent-soft);
-        }
-        .tall-card.archive-filled.selected .card-icon {
-            background: #FFF5F7;
-        }
+        .tall-card.selected .card-icon { background: var(--accent-soft); }
+        .tall-card.archive-filled.selected .card-icon { background: #FFF5F7; }
         .card-icon img { width: 92%; height: 92%; object-fit: contain; }
         .card-icon svg { width: 100%; height: 100%; }
 
@@ -444,7 +395,6 @@
         .card-tag {
             margin-top: 5px; font-size: 9.5px; font-weight: 800;
             letter-spacing: 1px; color: var(--muted); text-align: center;
-            transition: color 0.18s ease;
         }
         .tall-card.selected .card-tag { color: var(--accent); }
         .card-archive-title {
@@ -467,7 +417,6 @@
             padding: 10px 24px; border-radius: 999px;
             font-size: 13.5px; font-weight: 800; cursor: pointer;
             display: flex; align-items: center; gap: 6px;
-            transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-random {
             background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
@@ -478,19 +427,6 @@
             background: #FFFFFF; color: var(--ink-soft);
             border: 1px solid var(--line-strong);
             box-shadow: 0 2px 6px rgba(80, 48, 25, 0.04);
-        }
-        .tool-btn:active { transform: scale(0.95); box-shadow: none; }
-
-        .touch-sparkle {
-            position: fixed; pointer-events: none; z-index: 999999;
-            width: 10px; height: 10px; border-radius: 50%;
-            background: radial-gradient(circle, #FFF2CE 0%, #E25E1B 80%);
-            transform: translate(-50%, -50%);
-            animation: sparklePop 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes sparklePop {
-            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
-            100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.3); }
         }
 
         /* ===== 拍立得写真遮罩 ===== */
@@ -509,11 +445,6 @@
             user-select: auto !important; -webkit-user-select: auto !important;
             -webkit-touch-callout: default !important; touch-action: auto !important;
             cursor: pointer;
-            animation: photoIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
-        }
-        @keyframes photoIn {
-            from { opacity: 0; transform: scale(0.9) rotate(-2deg); }
-            to { opacity: 1; transform: scale(1) rotate(0); }
         }
         .user-id-wrapper {
             margin-top: 16px; display: flex; align-items: center; gap: 8px;
@@ -558,7 +489,6 @@
             background: #FFFFFF; border: 1px solid var(--line-strong); border-radius: 24px;
             padding: 24px 22px 20px; width: 84%; max-width: 295px; text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
-            animation: riseIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
         .name-modal-title { font-size: 16.5px; font-weight: 800; color: var(--accent); margin-bottom: 6px; }
         .name-modal-sub { font-size: 11.5px; color: var(--muted); margin-bottom: 14px; }
@@ -566,15 +496,12 @@
             width: 100%; padding: 10px 14px; border-radius: 14px;
             border: 1.5px solid #E5C3A3; font-size: 14px; font-weight: 700;
             color: var(--ink); text-align: center; outline: none; background: #FAF7F2;
-            transition: border-color 0.2s ease;
         }
-        .name-modal-input:focus { border-color: var(--accent); background: #fff; }
         .name-modal-btns { display: flex; gap: 8px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
         .name-btn {
             padding: 8px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 800;
-            border: none; cursor: pointer; transition: transform 0.15s ease;
+            border: none; cursor: pointer;
         }
-        .name-btn:active { transform: scale(0.94); }
         .name-btn-ok { background: var(--green); color: #fff; box-shadow: 0 4px 10px rgba(43, 156, 93, 0.25); }
         .name-btn-cancel { background: transparent; color: var(--ink-soft); border: 1px solid var(--line-strong); }
         .name-btn-danger { background: var(--rose); color: #fff; }
@@ -588,7 +515,7 @@
             background: rgba(50, 37, 32, 0.94); color: #fff;
             padding: 8px 18px; border-radius: 999px; font-weight: 700; font-size: 12px;
             z-index: 999999; opacity: 0; pointer-events: none;
-            transition: opacity 0.25s ease, transform 0.25s ease;
+            transition: opacity 0.25s ease;
             letter-spacing: 0.5px; white-space: nowrap;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
         }
@@ -616,7 +543,7 @@
         <div class="intro-stamp">
             <img src="images/avatar-logo.png" alt="" onerror="handleLogoFallback(this)">
         </div>
-        <div class="intro-kicker">叶修同人换装游戏</div>
+        <div class="intro-kicker">叶修换装同人小游戏</div>
         <div class="intro-title-1">神之衣橱</div>
         <div class="intro-rule"></div>
         <button class="intro-enter-btn" id="enter-game-btn">进入游戏</button>
@@ -688,7 +615,7 @@
 </div>
 
 <div id="poster-mask">
-    <img id="final-photo-img" alt="神之写真" src="" />
+    <img id="final-photo-img" alt="苗哥写真" src="" />
     <div class="user-id-wrapper">
         <span>署名</span>
         <input type="text" id="nickname-input" class="user-id-input" maxlength="8" value="林科森" placeholder="输入ID" />
@@ -801,8 +728,13 @@
 
     const partLabels = [
         { key: 'body', label: '素体' },
+        { key: 'maker', label: '妆容' },
+        { key: 'hair', label: '发型' },
+        { key: 'face', label: '五官' },
         { key: 'top', label: '上装' },
-        { key: 'pants', label: '边框' },
+        { key: 'pants', label: '下装' },
+        { key: 'shoes', label: '鞋袜' },
+        { key: 'headwear', label: '头饰' },
         { key: 'accessory', label: '配饰' }
     ];
 
@@ -815,7 +747,6 @@
         updateModelDisplay();
         initBgmControls();
 
-        window.addEventListener('pointerdown', spawnTouchSparkle, { passive: true });
         document.getElementById('camera-toggle').addEventListener('click', openPolaroidPoster);
     });
 
@@ -829,7 +760,6 @@
         const volumeSlider = document.getElementById('bgm-volume-slider');
         const volumeValText = document.getElementById('bgm-volume-val');
 
-        // 从缓存中恢复保存的音量偏好
         let savedVol = parseFloat(localStorage.getItem('miao_bgm_volume') || '0.6');
         if (isNaN(savedVol) || savedVol < 0 || savedVol > 1) savedVol = 0.6;
         lastNonZeroVolume = savedVol > 0 ? savedVol : 0.6;
@@ -851,26 +781,22 @@
             popMuteBtn.innerText = '🔊';
         }
 
-        // 点击音乐图标展开/收起音量调节气泡
         bgmBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             playCuteSound('tap');
             bgmPopover.classList.toggle('show');
         });
 
-        // 点击页面空白处自动关闭调节浮层
         document.addEventListener('pointerdown', (e) => {
             if (bgmPopover.classList.contains('show') && !e.target.closest('.bgm-wrapper')) {
                 bgmPopover.classList.remove('show');
             }
         });
 
-        // 浮层内部点击不触发关闭
         bgmPopover.addEventListener('pointerdown', (e) => {
             e.stopPropagation();
         });
 
-        // 滑块拖动实时调节音量
         volumeSlider.addEventListener('input', function () {
             const val = parseInt(this.value, 10);
             const vol = val / 100;
@@ -895,18 +821,15 @@
             localStorage.setItem('miao_bgm_volume', vol.toString());
         });
 
-        // 调节完毕提示
         volumeSlider.addEventListener('change', function () {
             const val = parseInt(this.value, 10);
             showToast(`音乐音量：${val}%`);
         });
 
-        // 一键静音 / 恢复音量
         popMuteBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             playCuteSound('tap');
             if (bgmAudio.muted || bgmAudio.volume === 0 || !bgmEnabled) {
-                // 取消静音
                 const restoreVol = lastNonZeroVolume > 0 ? lastNonZeroVolume : 0.6;
                 bgmAudio.muted = false;
                 bgmAudio.volume = restoreVol;
@@ -920,7 +843,6 @@
                 localStorage.setItem('miao_bgm_volume', restoreVol.toString());
                 showToast(`音量已恢复：${percent}%`);
             } else {
-                // 静音
                 lastNonZeroVolume = bgmAudio.volume > 0 ? bgmAudio.volume : lastNonZeroVolume;
                 bgmAudio.muted = true;
                 bgmAudio.volume = 0;
@@ -944,9 +866,8 @@
         }
         const mask = document.getElementById('intro-mask');
         mask.style.opacity = '0';
-        mask.style.transform = 'scale(1.04)';
         setTimeout(() => { mask.style.display = 'none'; }, 480);
-        showToast('一起装扮叶修吧');
+        showToast('一起装扮神吧');
     }
 
     function initStageCanvas() {
@@ -961,48 +882,36 @@
         const bgImg = new Image();
         bgImg.src = CURRENT_STAGE_BG;
         function drawStageBg() {
+            ctx.clearRect(0, 0, cvs.width, cvs.height);
             if (bgImg.complete && bgImg.naturalWidth > 0) {
-                ctx.drawImage(bgImg, 0, 0, cvs.width, cvs.height);
+                // 使用 contain 逻辑等比完整绘制背景图，使其与外框边框完美贴合
+                const imgRatio = bgImg.naturalWidth / bgImg.naturalHeight;
+                const canvasRatio = cvs.width / cvs.height;
+                let renderW = cvs.width;
+                let renderH = cvs.height;
+                let offsetX = 0;
+                let offsetY = 0;
+
+                if (imgRatio > canvasRatio) {
+                    renderH = cvs.width / imgRatio;
+                    offsetY = (cvs.height - renderH) / 2;
+                } else {
+                    renderW = cvs.height * imgRatio;
+                    offsetX = (cvs.width - renderW) / 2;
+                }
+                ctx.drawImage(bgImg, offsetX, offsetY, renderW, renderH);
             } else {
                 const grad = ctx.createLinearGradient(0, 0, 0, cvs.height);
                 grad.addColorStop(0, '#FAF2E7');
                 grad.addColorStop(1, '#E9DAC7');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, cvs.width, cvs.height);
-
-                ctx.strokeStyle = 'rgba(210, 180, 150, 0.2)';
-                ctx.lineWidth = 1;
-                for (let x = 0; x < cvs.width; x += 32) {
-                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, cvs.height); ctx.stroke();
-                }
-                for (let y = 0; y < cvs.height; y += 32) {
-                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(cvs.width, y); ctx.stroke();
-                }
             }
         }
         bgImg.onload = drawStageBg;
         bgImg.onerror = drawStageBg;
         resize();
         window.addEventListener('resize', resize);
-    }
-
-    function spawnTouchSparkle(e) {
-        const t = e.target;
-        if (!t.closest('#top-stage') && !t.closest('.tall-card') && !t.closest('.intro-enter-btn') && !t.closest('.tool-btn')) return;
-        const colors = ['#E25E1B', '#F3B3A4', '#D69F54'];
-        for (let i = 0; i < 2; i++) {
-            const star = document.createElement('div');
-            star.className = 'touch-sparkle';
-            const x = e.clientX || (e.touches && e.touches[0].clientX);
-            const y = e.clientY || (e.touches && e.touches[0].clientY);
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-            star.style.background = colors[(Math.random() * colors.length) | 0];
-            star.style.setProperty('--dx', `${(Math.random() - 0.5) * 56}px`);
-            star.style.setProperty('--dy', `${-20 - Math.random() * 40}px`);
-            document.body.appendChild(star);
-            setTimeout(() => star.remove(), 480);
-        }
     }
 
     function switchMainMode(mode) {
@@ -1270,7 +1179,7 @@
 
     function layerMarkup(obj) {
         if (!obj || obj.isNone || !obj.img) return '';
-        return `<div class="layer-sub-item"><img src="${obj.img}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><div style="display:none;width:100%;height:100%">${obj.svg || ''}</div></div>`;
+        return `<div class="layer-sub-item"><img src="${obj.img}" alt="" onerror="this.style.display='none';"></div>`;
     }
 
     function updateModelDisplay() {
@@ -1336,21 +1245,8 @@
         }
         currentDress.accessory = picked;
 
-        const model = document.getElementById('model-display');
-        model.style.animation = 'none';
-        model.style.opacity = '0.35';
-        model.style.transform = 'scale(0.975)';
-        requestAnimationFrame(() => {
-            updateModelDisplay();
-            renderCardsView();
-            model.style.transition = 'opacity .24s ease, transform .24s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            model.style.opacity = '1';
-            model.style.transform = 'scale(1)';
-            setTimeout(() => {
-                model.style.transition = '';
-                model.style.animation = '';
-            }, 260);
-        });
+        updateModelDisplay();
+        renderCardsView();
         showToast('随机穿搭搞定');
     }
 
