@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>奇迹苗哥·演员谢苗超话</title>
+    <style>
+        :root {
+            /* ===== 高阶轻奢手帐色系 ===== */
+            --paper: #FAF7F2;
+            --paper-card: #FFFFFF;
+            --paper-tray: #F5EFEB;
+            --stage-top: #FAF5EE;
+            --stage-bot: #EFE4D6;
+            --ink: #322520;
+            --ink-soft: #6A5043;
+            --muted: #A38A7A;
+            --line: rgba(106, 80, 67, 0.09);
+            --line-strong: rgba(106, 80, 67, 0.18);
+            --accent: #E25E1B;
+            --accent-soft: #FFF2EB;
+            --accent-glow: rgba(226, 94, 27, 0.22);
+            --green: #2B9C5D;
+            --green-soft: #EEF8F2;
+            --rose: #D94868;
+            --gold: #D69F54;
+            --shadow-card: 0 4px 14px -2px rgba(80, 48, 25, 0.05), 0 1px 3px rgba(80, 48, 25, 0.03);
+            --shadow-hover: 0 8px 22px -4px rgba(226, 94, 27, 0.16), 0 2px 6px rgba(80, 48, 25, 0.04);
+            --shadow-float: 0 18px 45px -8px rgba(70, 40, 20, 0.13);
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            margin: 0;
+            padding: 0;
+            touch-action: manipulation;
+        }
+
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            background-color: #EFE7DC;
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image:
+                radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.45) 0%, transparent 70%),
+                radial-gradient(rgba(180, 140, 110, 0.16) 1.2px, transparent 1.2px);
+            background-size: 100% 100%, 20px 20px;
+        }
+
+        /* ===== 开场层 ===== */
+        #intro-mask {
+            position: fixed; inset: 0;
+            background:
+                radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.85) 0%, transparent 58%),
+                linear-gradient(180deg, #FDF9F3 0%, #EFE3D3 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 99999; text-align: center; padding: 24px;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s ease;
+        }
+        .intro-content {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 12px; padding: 12px 18px;
+        }
+        .intro-stamp {
+            width: 64px; height: 64px; border-radius: 50%;
+            border: 2px solid rgba(226, 94, 27, 0.35);
+            background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(226, 94, 27, 0.28), inset 0 2px 4px rgba(255,255,255,0.4);
+            animation: stampIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .intro-stamp img { width: 100%; height: 100%; object-fit: cover; }
+        .intro-title-1 {
+            font-size: 33px; font-weight: 900; letter-spacing: 5px;
+            color: var(--accent); line-height: 1.15; margin-top: 4px;
+            text-shadow: 0 2px 10px rgba(226, 94, 27, 0.15);
+            animation: riseIn 0.7s 0.08s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .intro-kicker {
+            font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
+            color: var(--muted); text-transform: uppercase;
+            animation: riseIn 0.7s 0.16s both;
+        }
+        .intro-rule {
+            width: 64px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+            animation: riseIn 0.7s 0.2s both;
+        }
+        .intro-enter-btn {
+            margin-top: 14px; padding: 13px 44px;
+            background: linear-gradient(135deg, #32B66E 0%, #22884E 100%);
+            color: #fff; font-size: 15px; font-weight: 800; letter-spacing: 2px;
+            border: none; border-radius: 999px; cursor: pointer;
+            box-shadow: 0 10px 22px rgba(43, 156, 93, 0.32), inset 0 1px 1px rgba(255,255,255,0.3);
+            animation: riseIn 0.7s 0.28s both, pulseBtn 2.6s 1.2s ease-in-out infinite;
+            transition: transform 0.15s ease;
+        }
+        .intro-enter-btn:active { transform: scale(0.96); }
+        .intro-credit {
+            margin-top: 8px; font-size: 10.5px; font-weight: 500;
+            letter-spacing: 1.8px; color: rgba(106, 80, 67, 0.55);
+            animation: riseIn 0.7s 0.36s both;
+        }
+        @keyframes stampIn {
+            0% { transform: scale(1.4) rotate(-10deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+        @keyframes riseIn {
+            0% { transform: translateY(12px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulseBtn {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.035); }
+        }
+
+        /* ===== 主容器 ===== */
+        #arcade-container {
+            width: 100vw; max-width: 430px; height: 100vh; height: 100dvh;
+            display: flex; flex-direction: column;
+            background: var(--paper);
+            box-shadow: var(--shadow-float);
+            position: relative; overflow: hidden;
+        }
+
+        @media (min-width: 460px) {
+            #arcade-container {
+                height: 94vh;
+                max-height: 890px;
+                border-radius: 28px;
+                border: 1px solid rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .top-bar {
+            width: 100%;
+            padding: 10px 16px;
+            padding-top: calc(10px + env(safe-area-inset-top, 0px));
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(253, 249, 243, 0.88);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+            z-index: 50; flex-shrink: 0;
+            position: relative;
+        }
+        .header-layout { display: flex; align-items: center; gap: 10px; }
+        .title-group h1 {
+            font-size: 15.5px; color: var(--accent); font-weight: 900;
+            margin: 0; line-height: 1.15; letter-spacing: 0.8px;
+        }
+        .subtitle {
+            font-size: 10px; color: var(--muted); font-weight: 700;
+            letter-spacing: 1.2px; margin-top: 1px;
+        }
+        .icon-btn {
+            width: 36px; height: 36px;
+            background: #FFFFFF;
+            border: 1px solid var(--line-strong);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 15px; cursor: pointer;
+            box-shadow: 0 2px 6px rgba(80, 48, 25, 0.05);
+            transition: all 0.15s ease;
+        }
+        .icon-btn:active { transform: scale(0.92); background: var(--paper-tray); }
+        .icon-btn.cam {
+            background: linear-gradient(135deg, #FFF6F8 0%, #FFE9EE 100%);
+            border-color: rgba(217, 72, 104, 0.25);
+        }
+
+        /* ===== BGM 音量调节浮层 ===== */
+        .bgm-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+        .bgm-popover {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: -24px;
+            background: rgba(255, 252, 247, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.2px solid rgba(220, 195, 175, 0.7);
+            border-radius: 16px;
+            padding: 8px 12px;
+            box-shadow: 0 10px 28px rgba(70, 40, 20, 0.16);
+            z-index: 1000;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            animation: riseIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .bgm-popover.show {
+            display: flex;
+        }
+        .bgm-popover::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 36px;
+            width: 10px;
+            height: 10px;
+            background: #FFFDF9;
+            transform: rotate(45deg);
+            border-top: 1.2px solid rgba(220, 195, 175, 0.7);
+            border-left: 1.2px solid rgba(220, 195, 175, 0.7);
+        }
+        .bgm-pop-mute {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 1px solid var(--line-strong); background: #FFFFFF;
+            font-size: 13px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 1px 4px rgba(80, 48, 25, 0.06);
+            transition: transform 0.15s ease; flex-shrink: 0;
+        }
+        .bgm-pop-mute:active { transform: scale(0.9); }
+        .bgm-slider-container {
+            width: 105px; display: flex; align-items: center;
+        }
+        #bgm-volume-slider {
+            -webkit-appearance: none; appearance: none;
+            width: 100%; height: 6px; border-radius: 999px;
+            background: #EFE4D6; outline: none; cursor: pointer;
+        }
+        #bgm-volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 16px; height: 16px; border-radius: 50%;
+            background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 6px rgba(226, 94, 27, 0.38);
+            cursor: pointer; transition: transform 0.15s ease;
+        }
+        #bgm-volume-slider::-webkit-slider-thumb:active { transform: scale(1.15); }
+        #bgm-volume-slider::-moz-range-thumb {
+            width: 16px; height: 16px; border-radius: 50%;
+            background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 6px rgba(226, 94, 27, 0.38);
+            cursor: pointer;
+        }
+        #bgm-volume-val {
+            font-size: 11.5px; font-weight: 800; color: var(--ink-soft);
+            min-width: 32px; text-align: right; font-variant-numeric: tabular-nums;
+        }
+
+        /* ===== 舞台区 ===== */
+        #top-stage {
+            height: 50%; min-height: 250px; width: 100%;
+            position: relative; z-index: 10; flex-shrink: 0;
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+            background:
+                radial-gradient(circle at 50% 38%, #FFFFFF 0%, #FAF2E8 62%, #E9DAC7 100%);
+            overflow: hidden;
+        }
+        #stage-bg-canvas {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none; opacity: 0.85;
+        }
+        #top-stage::before {
+            content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 65%);
+        }
+
+        #model-display {
+            position: relative; 
+            width: 250px; 
+            height: 88%;
+            top: 50px; /* 让人物自然下移踩在地毯上 */
+            z-index: 4; 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-end;
+            pointer-events: none;
+            filter: drop-shadow(0 14px 18px rgba(70, 35, 18, 0.16));
+            animation: breathe 5.2s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .model-layer, .layer-sub-item {
+            position: absolute; width: 100%; height: 100%; bottom: 0; left: 0;
+            display: flex; justify-content: center; align-items: center;
+            pointer-events: none;
+        }
+        .model-layer img, .layer-sub-item img,
+        .model-layer svg, .layer-sub-item svg {
+            width: 100%; height: 100%; object-fit: contain; display: block;
+        }
+        .layer-sub-item img, .layer-sub-item svg {
+            animation: layerBounce 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        @keyframes layerBounce {
+            0% { opacity: 0.35; transform: scale(0.96) translateY(2px); }
+            70% { transform: scale(1.02) translateY(-1px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* ===== 衣橱区 ===== */
+        #wardrobe-wrapper {
+            flex: 1; display: flex; flex-direction: column;
+            background: var(--paper); position: relative; overflow: hidden; z-index: 15;
+            border-top: 1px solid var(--line);
+        }
+
+        .seg {
+            display: flex; margin: 10px 16px 0; padding: 3px;
+            background: #EFE4D6; border-radius: 999px; flex-shrink: 0;
+            box-shadow: inset 0 1px 3px rgba(80, 48, 25, 0.08);
+        }
+        .seg-btn {
+            flex: 1; border: none; background: transparent;
+            font-size: 13px; font-weight: 700; color: var(--ink-soft);
+            padding: 7px 0; border-radius: 999px; cursor: pointer;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .seg-btn.on {
+            background: #FFFFFF; color: var(--ink);
+            box-shadow: 0 2px 7px rgba(80, 48, 25, 0.10);
+        }
+        .seg-btn.on.archive { color: var(--rose); }
+
+        /* 纯文字胶囊导航栏 */
+        .part-pills {
+            display: flex; flex-wrap: nowrap; gap: 7px;
+            padding: 9px 16px 7px;
+            overflow-x: auto; overflow-y: hidden;
+            scrollbar-width: none; flex-shrink: 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .part-pills::-webkit-scrollbar { display: none; }
+        .pill-btn {
+            padding: 6px 14px; border-radius: 999px;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+            border: 1px solid var(--line-strong);
+            background: #FFFFFF; color: var(--ink-soft);
+            cursor: pointer; white-space: nowrap; flex-shrink: 0;
+            box-shadow: 0 1px 2px rgba(80, 48, 25, 0.03);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .pill-btn:active { transform: scale(0.95); }
+        .pill-btn.active {
+            background: linear-gradient(135deg, #FF7635 0%, #E25E1B 100%);
+            border-color: #E25E1B; color: #FFFFFF;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .cards-scroll-wrap {
+            flex: 1; position: relative; min-height: 0;
+        }
+        .cards-scroll-wrap::before,
+        .cards-scroll-wrap::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 22px; z-index: 2;
+            pointer-events: none;
+        }
+        .cards-scroll-wrap::before {
+            left: 0; background: linear-gradient(90deg, var(--paper), transparent);
+        }
+        .cards-scroll-wrap::after {
+            right: 0; background: linear-gradient(270deg, var(--paper), transparent);
+        }
+        .cards-scroll-container {
+            height: 100%; padding: 8px 16px 12px;
+            overflow-x: auto; overflow-y: hidden;
+            display: flex; gap: 11px; align-items: stretch;
+            scrollbar-width: none; -webkit-overflow-scrolling: touch;
+        }
+        .cards-scroll-container::-webkit-scrollbar { display: none; }
+
+        /* ===== 精装卡片托盘体系 ===== */
+        .tall-card {
+            width: 102px; flex-shrink: 0;
+            background: var(--paper-card);
+            border: 1.2px solid rgba(106, 80, 67, 0.12);
+            border-radius: 18px;
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+            cursor: pointer; padding: 7px 6px 8px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+        .tall-card:active { transform: scale(0.96); }
+        
+        .tall-card.selected {
+            border-color: var(--accent);
+            background: #FFFFFF;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        .tall-card.selected::after {
+            content: '✓'; position: absolute; top: -4px; right: -3px;
+            width: 18px; height: 18px; border-radius: 50%;
+            background: var(--accent); color: #fff;
+            font-size: 10px; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 6px rgba(226, 94, 27, 0.35);
+            border: 1.5px solid #fff;
+        }
+        .tall-card.archive-filled.selected { border-color: var(--rose); box-shadow: 0 8px 22px -4px rgba(217, 72, 104, 0.22); }
+        .tall-card.archive-filled.selected::after { background: var(--rose); box-shadow: 0 2px 6px rgba(217, 72, 104, 0.35); }
+
+        .card-icon {
+            width: 88px; height: 90px;
+            background: var(--paper-tray);
+            border-radius: 13px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(80, 48, 25, 0.05);
+            border: 1px solid rgba(106, 80, 67, 0.05);
+            transition: background 0.2s ease;
+        }
+        .tall-card.selected .card-icon {
+            background: var(--accent-soft);
+        }
+        .tall-card.archive-filled.selected .card-icon {
+            background: #FFF5F7;
+        }
+        .card-icon img { width: 92%; height: 92%; object-fit: contain; }
+        .card-icon svg { width: 100%; height: 100%; }
+
+        .mini-model-thumb {
+            width: 100%; height: 100%; position: relative;
+            display: flex; justify-content: center; align-items: center;
+            pointer-events: none;
+        }
+        .mini-model-thumb .mini-layer {
+            position: absolute; inset: 0;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .mini-model-thumb .mini-layer img,
+        .mini-model-thumb svg { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+        .card-tag {
+            margin-top: 5px; font-size: 9.5px; font-weight: 800;
+            letter-spacing: 1px; color: var(--muted); text-align: center;
+            transition: color 0.18s ease;
+        }
+        .tall-card.selected .card-tag { color: var(--accent); }
+        .card-archive-title {
+            font-size: 11.5px; font-weight: 700; color: var(--ink-soft); text-align: center;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            max-width: 88px; margin-top: 5px;
+        }
+
+        /* ===== 底部操作栏 ===== */
+        #bottom-tools {
+            padding: 10px 16px;
+            padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+            background: rgba(253, 249, 243, 0.92);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--line);
+            display: flex; justify-content: center; align-items: center; gap: 12px;
+            flex-shrink: 0;
+        }
+        .tool-btn {
+            padding: 10px 24px; border-radius: 999px;
+            font-size: 13.5px; font-weight: 800; cursor: pointer;
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-random {
+            background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
+            color: #fff; border: none;
+            box-shadow: 0 6px 18px rgba(226, 94, 27, 0.28);
+        }
+        .btn-reset {
+            background: #FFFFFF; color: var(--ink-soft);
+            border: 1px solid var(--line-strong);
+            box-shadow: 0 2px 6px rgba(80, 48, 25, 0.04);
+        }
+        .tool-btn:active { transform: scale(0.95); box-shadow: none; }
+
+        .touch-sparkle {
+            position: fixed; pointer-events: none; z-index: 999999;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: radial-gradient(circle, #FFF2CE 0%, #E25E1B 80%);
+            transform: translate(-50%, -50%);
+            animation: sparklePop 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes sparklePop {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
+            100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.3); }
+        }
+
+        /* ===== 拍立得写真遮罩 ===== */
+        #poster-mask {
+            display: none; position: fixed; inset: 0;
+            background: rgba(30, 18, 12, 0.82);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            z-index: 100000; flex-direction: column; justify-content: center; align-items: center;
+            padding: 16px;
+        }
+        #final-photo-img {
+            width: 82vw; max-width: 330px; aspect-ratio: 1 / 1; height: auto;
+            border-radius: 8px;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+            display: block; background: #FFF9F0;
+            user-select: auto !important; -webkit-user-select: auto !important;
+            -webkit-touch-callout: default !important; touch-action: auto !important;
+            cursor: pointer;
+            animation: photoIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        @keyframes photoIn {
+            from { opacity: 0; transform: scale(0.9) rotate(-2deg); }
+            to { opacity: 1; transform: scale(1) rotate(0); }
+        }
+        .user-id-wrapper {
+            margin-top: 16px; display: flex; align-items: center; gap: 8px;
+            background: rgba(255, 252, 246, 0.95); padding: 5px 8px 5px 14px;
+            border-radius: 999px; border: 1px solid rgba(220, 195, 175, 0.8);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        .user-id-wrapper span { font-size: 11px; font-weight: 700; color: var(--ink-soft); }
+        .user-id-input {
+            width: 90px; border: none; background: #fff; outline: none;
+            font-size: 12px; font-weight: 700; color: var(--accent);
+            padding: 5px 8px; border-radius: 999px; text-align: center;
+            border: 1px solid #ECCBA5;
+        }
+        .btn-confirm-id, .btn-close-poster {
+            border: none; border-radius: 999px; color: #fff; cursor: pointer; font-weight: 800;
+            background: var(--green);
+        }
+        .btn-confirm-id { padding: 5px 12px; font-size: 11.5px; }
+        .btn-close-poster {
+            margin-top: 14px; padding: 10px 36px; font-size: 13.5px;
+            box-shadow: 0 6px 16px rgba(43, 156, 93, 0.28);
+        }
+        .poster-hint {
+            margin-top: 9px; font-size: 10px; letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.65); font-weight: 600;
+        }
+
+        #shutter-flash {
+            display: none; position: fixed; inset: 0; background: #fff;
+            z-index: 100001; pointer-events: none; opacity: 0;
+        }
+
+        /* ===== 命名与操作弹窗 ===== */
+        .modal-mask {
+            display: none; position: fixed; inset: 0;
+            background: rgba(16, 9, 5, 0.58);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            z-index: 200000; justify-content: center; align-items: center;
+        }
+        .name-modal-box {
+            background: #FFFFFF; border: 1px solid var(--line-strong); border-radius: 24px;
+            padding: 24px 22px 20px; width: 84%; max-width: 295px; text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+            animation: riseIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .name-modal-title { font-size: 16.5px; font-weight: 800; color: var(--accent); margin-bottom: 6px; }
+        .name-modal-sub { font-size: 11.5px; color: var(--muted); margin-bottom: 14px; }
+        .name-modal-input {
+            width: 100%; padding: 10px 14px; border-radius: 14px;
+            border: 1.5px solid #E5C3A3; font-size: 14px; font-weight: 700;
+            color: var(--ink); text-align: center; outline: none; background: #FAF7F2;
+            transition: border-color 0.2s ease;
+        }
+        .name-modal-input:focus { border-color: var(--accent); background: #fff; }
+        .name-modal-btns { display: flex; gap: 8px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+        .name-btn {
+            padding: 8px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 800;
+            border: none; cursor: pointer; transition: transform 0.15s ease;
+        }
+        .name-btn:active { transform: scale(0.94); }
+        .name-btn-ok { background: var(--green); color: #fff; box-shadow: 0 4px 10px rgba(43, 156, 93, 0.25); }
+        .name-btn-cancel { background: transparent; color: var(--ink-soft); border: 1px solid var(--line-strong); }
+        .name-btn-danger { background: var(--rose); color: #fff; }
+        .name-btn-ghost { background: var(--accent); color: #fff; }
+
+        #hidden-canvas { display: none; }
+
+        #toast {
+            position: absolute; top: calc(60px + env(safe-area-inset-top, 0px));
+            left: 50%; transform: translateX(-50%);
+            background: rgba(50, 37, 32, 0.94); color: #fff;
+            padding: 8px 18px; border-radius: 999px; font-weight: 700; font-size: 12px;
+            z-index: 999999; opacity: 0; pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            letter-spacing: 0.5px; white-space: nowrap;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+        }
+
+        .logo-wrap {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 1px solid #ECCBA5;
+            display: inline-flex; justify-content: center; align-items: center;
+            background: linear-gradient(135deg, #FF7B3D 0%, #E25E1B 100%);
+            overflow: hidden; flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(226, 94, 27, 0.25);
+        }
+        .logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .badge-text { font-size: 13px; font-weight: 900; color: #fff; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<audio id="bgm-audio" src="audio/bgm.mp3" loop preload="auto"></audio>
+<div id="toast">提示信息</div>
+<div id="shutter-flash"></div>
+
+<div id="intro-mask">
+    <div class="intro-content">
+        <div class="intro-stamp">
+            <img src="images/avatar-logo.png" alt="" onerror="handleLogoFallback(this)">
+        </div>
+        <div class="intro-kicker">演员谢苗超话</div>
+        <div class="intro-title-1">奇迹苗哥</div>
+        <div class="intro-rule"></div>
+        <button class="intro-enter-btn" id="enter-game-btn">进入游戏</button>
+        <div class="intro-credit">制作 林科森 | 制图 左海</div>
+    </div>
+</div>
+
+<div id="arcade-container">
+    <div class="top-bar">
+        <div class="header-layout">
+            <div class="logo-wrap">
+                <img src="images/avatar-logo.png" alt="" onerror="handleLogoFallback(this)">
+            </div>
+            <div class="title-group">
+                <h1>奇迹苗哥</h1>
+                <div class="subtitle">演员谢苗超话</div>
+            </div>
+        </div>
+        <div class="header-layout">
+            <!-- 带音量调节浮层的 BGM 控件 -->
+            <div class="bgm-wrapper">
+                <div id="bgm-toggle" class="icon-btn" title="音乐与音量">♪</div>
+                <div id="bgm-popover" class="bgm-popover">
+                    <button id="bgm-pop-mute" class="bgm-pop-mute" title="静音切换">🔊</button>
+                    <div class="bgm-slider-container">
+                        <input type="range" id="bgm-volume-slider" min="0" max="100" value="60" />
+                    </div>
+                    <span id="bgm-volume-val">60%</span>
+                </div>
+            </div>
+            <div id="camera-toggle" class="icon-btn cam" title="拍立得写真">📷</div>
+        </div>
+    </div>
+
+    <div id="top-stage">
+        <canvas id="stage-bg-canvas"></canvas>
+        <div id="model-display">
+            <div class="model-layer" id="layer-body"></div>
+            <div class="model-layer" id="layer-maker"></div>
+            <div class="model-layer" id="layer-pants-shoes-group">
+                <div class="model-layer" id="layer-pants"></div>
+                <div class="model-layer" id="layer-shoes"></div>
+            </div>
+            <div class="model-layer" id="layer-top"></div>
+            <div class="model-layer" id="layer-face"></div>
+            <div class="model-layer" id="layer-hair"></div>
+            <div class="model-layer" id="layer-headwear"></div>
+            <div class="model-layer" id="layer-accessory"></div>
+        </div>
+    </div>
+
+    <div id="wardrobe-wrapper">
+        <div class="seg" id="mode-seg">
+            <button class="seg-btn on" id="btn-mode-scatter" onclick="switchMainMode('scatter')">OOTD</button>
+            <button class="seg-btn" id="btn-mode-archive" onclick="switchMainMode('archive')">存档</button>
+        </div>
+
+        <div class="part-pills" id="part-pills"></div>
+
+        <div class="cards-scroll-wrap">
+            <div class="cards-scroll-container" id="cards-container"></div>
+        </div>
+
+        <div id="bottom-tools">
+            <button class="tool-btn btn-reset" onclick="resetOutfit()">恢复经典</button>
+            <button class="tool-btn btn-random" onclick="randomizeOutfit()">随机搭配</button>
+        </div>
+    </div>
+</div>
+
+<div id="poster-mask">
+    <img id="final-photo-img" alt="苗哥写真" src="" />
+    <div class="user-id-wrapper">
+        <span>署名</span>
+        <input type="text" id="nickname-input" class="user-id-input" maxlength="8" value="林科森" placeholder="输入ID" />
+        <button class="btn-confirm-id" onclick="updatePhotoWithID()">确认</button>
+    </div>
+    <button class="btn-close-poster" onclick="closePoster()">返回游戏</button>
+    <div class="poster-hint">长按相纸保存</div>
+</div>
+
+<div id="archive-name-modal" class="modal-mask">
+    <div class="name-modal-box">
+        <div class="name-modal-title">保存当前穿搭</div>
+        <div class="name-modal-sub">给这套私服起一个短名</div>
+        <input type="text" id="custom-archive-name" class="name-modal-input" maxlength="6" placeholder="例如：冬日" />
+        <div class="name-modal-btns">
+            <button class="name-btn name-btn-cancel" onclick="closeArchiveModal()">取消</button>
+            <button class="name-btn name-btn-ok" onclick="confirmSaveArchive()">存入</button>
+        </div>
+    </div>
+</div>
+
+<div id="archive-action-modal" class="modal-mask">
+    <div class="name-modal-box">
+        <div class="name-modal-title" id="archive-action-title">私服</div>
+        <div class="name-modal-sub">长按槽位后可覆盖或删除</div>
+        <div class="name-modal-btns">
+            <button class="name-btn name-btn-ghost" onclick="overwriteArchiveSlot()">覆盖</button>
+            <button class="name-btn name-btn-danger" onclick="deleteArchiveSlot()">删除</button>
+            <button class="name-btn name-btn-cancel" onclick="closeArchiveActionModal()">取消</button>
+        </div>
+    </div>
+</div>
+
+<canvas id="hidden-canvas" width="720" height="720"></canvas>
+
+<script>
+    const CURRENT_STAGE_BG = 'images/bg.jpg';
+    
+    const HANGER_SVG = `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 14c2.5 0 4.5 1.8 4.5 4 0 1.6-1 3-2.4 3.6L21 28h22l-8.5 18c-.4 1-.1.9-.3.9h-1.5c-1.2 0-2.2-.7-2.6-1.8L18 28" stroke="#D1A77E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 28h34" stroke="#D1A77E" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="32" cy="13.5" r="1.5" fill="#D1A77E"/>
+    </svg>`;
+
+    const TAG_MAP = {
+        body_base: 'BODY', face: 'FACE', maker: 'MAKE', hair: 'HAIR',
+        top: 'TOP', pants: 'PANT', shoes: 'SHOE', headwear: 'HEAD', acc: 'ACC'
+    };
+
+    function handleLogoFallback(img) {
+        img.style.display = 'none';
+        const parent = img.parentElement;
+        if (parent && !parent.querySelector('.badge-text')) {
+            const span = document.createElement('span');
+            span.className = 'badge-text';
+            span.innerText = '苗';
+            parent.appendChild(span);
+        }
+    }
+
+    function generateParts(folder, prefix, count = 9, hasNone = true) {
+        const list = [];
+        const tag = TAG_MAP[prefix] || prefix.toUpperCase();
+        if (hasNone) {
+            list.push({ id: prefix + '_none', img: '', isNone: true, tag: 'NONE', svg: HANGER_SVG });
+        }
+        for (let i = 1; i <= count; i++) {
+            const numStr = i < 10 ? '0' + i : '' + i;
+            list.push({
+                id: prefix + '_' + numStr,
+                img: `images/${folder}/${prefix}_${numStr}.png`,
+                tag: tag + ' ' + numStr,
+                svg: HANGER_SVG
+            });
+        }
+        return list;
+    }
+
+    const WARDROBE_PARTS = {
+        body: generateParts('body', 'body_base', 3, false),
+        face: generateParts('face', 'face', 5, false),
+        maker: generateParts('maker', 'maker', 4, true),
+        hair: generateParts('hair', 'hair', 7, true),
+        top: generateParts('top', 'top', 7, true),
+        pants: generateParts('pants', 'pants', 5, true),
+        shoes: generateParts('shoes', 'shoes', 6, true),
+        headwear: generateParts('headwear', 'headwear', 4, true),
+        accessory: generateParts('accessory', 'acc', 10, true)
+    };
+
+    const DEFAULT_DRESS = {
+        body: 'body_base_01',
+        face: 'face_01',
+        maker: 'maker_none',
+        hair: 'hair_01',
+        top: 'top_01',
+        headwear: ['headwear_01'],
+        pants: 'pants_01',
+        shoes: 'shoes_01',
+        accessory: []
+    };
+
+    let currentDress = { ...DEFAULT_DRESS, headwear: ['headwear_01'], accessory: [] };
+    let mainMode = 'scatter';
+    let activePart = 'body';
+    let bgmEnabled = true;
+    let savingSlotIndex = -1;
+    let actionSlotIndex = -1;
+    let pressTimer = null;
+
+    const partLabels = [
+        { key: 'body', label: '素体' },
+        { key: 'maker', label: '妆容' },
+        { key: 'hair', label: '发型' },
+        { key: 'face', label: '五官' },
+        { key: 'top', label: '上装' },
+        { key: 'pants', label: '下装' },
+        { key: 'shoes', label: '鞋袜' },
+        { key: 'headwear', label: '头饰' },
+        { key: 'accessory', label: '配饰' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('enter-game-btn').addEventListener('click', enterGame);
+        document.getElementById('intro-mask').addEventListener('click', enterGame);
+        initStageCanvas();
+        renderPartPills();
+        renderCardsView();
+        updateModelDisplay();
+        initBgmControls();
+
+        window.addEventListener('pointerdown', spawnTouchSparkle, { passive: true });
+        document.getElementById('camera-toggle').addEventListener('click', openPolaroidPoster);
+    });
+
+    /* ===== BGM 与音量控制模块 ===== */
+    let lastNonZeroVolume = 0.6;
+    function initBgmControls() {
+        const bgmAudio = document.getElementById('bgm-audio');
+        const bgmBtn = document.getElementById('bgm-toggle');
+        const bgmPopover = document.getElementById('bgm-popover');
+        const popMuteBtn = document.getElementById('bgm-pop-mute');
+        const volumeSlider = document.getElementById('bgm-volume-slider');
+        const volumeValText = document.getElementById('bgm-volume-val');
+
+        // 从缓存中恢复保存的音量偏好
+        let savedVol = parseFloat(localStorage.getItem('miao_bgm_volume') || '0.6');
+        if (isNaN(savedVol) || savedVol < 0 || savedVol > 1) savedVol = 0.6;
+        lastNonZeroVolume = savedVol > 0 ? savedVol : 0.6;
+
+        bgmAudio.volume = savedVol;
+        const percent = Math.round(savedVol * 100);
+        volumeSlider.value = percent;
+        volumeValText.innerText = `${percent}%`;
+
+        if (savedVol === 0) {
+            bgmEnabled = false;
+            bgmAudio.muted = true;
+            bgmBtn.innerText = '×';
+            popMuteBtn.innerText = '🔇';
+        } else {
+            bgmEnabled = true;
+            bgmAudio.muted = false;
+            bgmBtn.innerText = '♪';
+            popMuteBtn.innerText = '🔊';
+        }
+
+        // 点击音乐图标展开/收起音量调节气泡
+        bgmBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playCuteSound('tap');
+            bgmPopover.classList.toggle('show');
+        });
+
+        // 点击页面空白处自动关闭调节浮层
+        document.addEventListener('pointerdown', (e) => {
+            if (bgmPopover.classList.contains('show') && !e.target.closest('.bgm-wrapper')) {
+                bgmPopover.classList.remove('show');
+            }
+        });
+
+        // 浮层内部点击不触发关闭
+        bgmPopover.addEventListener('pointerdown', (e) => {
+            e.stopPropagation();
+        });
+
+        // 滑块拖动实时调节音量
+        volumeSlider.addEventListener('input', function () {
+            const val = parseInt(this.value, 10);
+            const vol = val / 100;
+            bgmAudio.volume = vol;
+            volumeValText.innerText = `${val}%`;
+
+            if (val === 0) {
+                bgmEnabled = false;
+                bgmAudio.muted = true;
+                bgmBtn.innerText = '×';
+                popMuteBtn.innerText = '🔇';
+            } else {
+                bgmEnabled = true;
+                bgmAudio.muted = false;
+                bgmBtn.innerText = '♪';
+                popMuteBtn.innerText = '🔊';
+                lastNonZeroVolume = vol;
+                if (bgmAudio.paused) {
+                    bgmAudio.play().catch(() => {});
+                }
+            }
+            localStorage.setItem('miao_bgm_volume', vol.toString());
+        });
+
+        // 调节完毕提示
+        volumeSlider.addEventListener('change', function () {
+            const val = parseInt(this.value, 10);
+            showToast(`音乐音量：${val}%`);
+        });
+
+        // 一键静音 / 恢复音量
+        popMuteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playCuteSound('tap');
+            if (bgmAudio.muted || bgmAudio.volume === 0 || !bgmEnabled) {
+                // 取消静音
+                const restoreVol = lastNonZeroVolume > 0 ? lastNonZeroVolume : 0.6;
+                bgmAudio.muted = false;
+                bgmAudio.volume = restoreVol;
+                bgmEnabled = true;
+                const percent = Math.round(restoreVol * 100);
+                volumeSlider.value = percent;
+                volumeValText.innerText = `${percent}%`;
+                bgmBtn.innerText = '♪';
+                popMuteBtn.innerText = '🔊';
+                bgmAudio.play().catch(() => {});
+                localStorage.setItem('miao_bgm_volume', restoreVol.toString());
+                showToast(`音量已恢复：${percent}%`);
+            } else {
+                // 静音
+                lastNonZeroVolume = bgmAudio.volume > 0 ? bgmAudio.volume : lastNonZeroVolume;
+                bgmAudio.muted = true;
+                bgmAudio.volume = 0;
+                bgmEnabled = false;
+                volumeSlider.value = 0;
+                volumeValText.innerText = '0%';
+                bgmBtn.innerText = '×';
+                popMuteBtn.innerText = '🔇';
+                localStorage.setItem('miao_bgm_volume', '0');
+                showToast('背景音乐已静音');
+            }
+        });
+    }
+
+    function enterGame(e) {
+        if (e) e.stopPropagation();
+        playCuteSound('enter');
+        const bgm = document.getElementById('bgm-audio');
+        if (bgm && bgmEnabled && !bgm.muted && bgm.volume > 0) {
+            bgm.play().catch(() => {});
+        }
+        const mask = document.getElementById('intro-mask');
+        mask.style.opacity = '0';
+        mask.style.transform = 'scale(1.04)';
+        setTimeout(() => { mask.style.display = 'none'; }, 480);
+        showToast('一起装扮苗哥吧');
+    }
+
+    function initStageCanvas() {
+        const cvs = document.getElementById('stage-bg-canvas');
+        const ctx = cvs.getContext('2d');
+        const resize = () => {
+            const stage = document.getElementById('top-stage');
+            cvs.width = stage.clientWidth || 430;
+            cvs.height = stage.clientHeight || 300;
+            drawStageBg();
+        };
+        const bgImg = new Image();
+        bgImg.src = CURRENT_STAGE_BG;
+        function drawStageBg() {
+            if (bgImg.complete && bgImg.naturalWidth > 0) {
+                ctx.drawImage(bgImg, 0, 0, cvs.width, cvs.height);
+            } else {
+                const grad = ctx.createLinearGradient(0, 0, 0, cvs.height);
+                grad.addColorStop(0, '#FAF2E7');
+                grad.addColorStop(1, '#E9DAC7');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, cvs.width, cvs.height);
+
+                ctx.strokeStyle = 'rgba(210, 180, 150, 0.2)';
+                ctx.lineWidth = 1;
+                for (let x = 0; x < cvs.width; x += 32) {
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, cvs.height); ctx.stroke();
+                }
+                for (let y = 0; y < cvs.height; y += 32) {
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(cvs.width, y); ctx.stroke();
+                }
+            }
+        }
+        bgImg.onload = drawStageBg;
+        bgImg.onerror = drawStageBg;
+        resize();
+        window.addEventListener('resize', resize);
+    }
+
+    function spawnTouchSparkle(e) {
+        const t = e.target;
+        if (!t.closest('#top-stage') && !t.closest('.tall-card') && !t.closest('.intro-enter-btn') && !t.closest('.tool-btn')) return;
+        const colors = ['#E25E1B', '#F3B3A4', '#D69F54'];
+        for (let i = 0; i < 2; i++) {
+            const star = document.createElement('div');
+            star.className = 'touch-sparkle';
+            const x = e.clientX || (e.touches && e.touches[0].clientX);
+            const y = e.clientY || (e.touches && e.touches[0].clientY);
+            star.style.left = `${x}px`;
+            star.style.top = `${y}px`;
+            star.style.background = colors[(Math.random() * colors.length) | 0];
+            star.style.setProperty('--dx', `${(Math.random() - 0.5) * 56}px`);
+            star.style.setProperty('--dy', `${-20 - Math.random() * 40}px`);
+            document.body.appendChild(star);
+            setTimeout(() => star.remove(), 480);
+        }
+    }
+
+    function switchMainMode(mode) {
+        mainMode = mode;
+        playCuteSound('tap');
+        document.getElementById('btn-mode-scatter').className = `seg-btn ${mode === 'scatter' ? 'on' : ''}`;
+        document.getElementById('btn-mode-archive').className = `seg-btn ${mode === 'archive' ? 'on archive' : ''}`;
+        document.getElementById('part-pills').style.display = (mode === 'scatter') ? 'flex' : 'none';
+        renderCardsView();
+    }
+
+    function renderPartPills() {
+        const wrap = document.getElementById('part-pills');
+        wrap.innerHTML = '';
+        partLabels.forEach(p => {
+            const pill = document.createElement('div');
+            pill.className = `pill-btn ${p.key === activePart ? 'active' : ''}`;
+            pill.innerText = p.label;
+            pill.onclick = () => {
+                activePart = p.key;
+                playCuteSound('tap');
+                renderPartPills();
+                renderCardsView();
+                pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            };
+            wrap.appendChild(pill);
+        });
+        const activeEl = wrap.querySelector('.pill-btn.active');
+        if (activeEl) activeEl.scrollIntoView({ inline: 'center', block: 'nearest' });
+    }
+
+    function renderCardIconContent(item) {
+        if (!item || item.isNone) {
+            return `<div style="width:68%;height:68%;display:flex;align-items:center;justify-content:center;opacity:.88">${HANGER_SVG}</div>`;
+        }
+        if (item.img) {
+            return `<img src="${item.img}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div style="display:none;width:68%;height:68%;align-items:center;justify-content:center;opacity:.88">${HANGER_SVG}</div>`;
+        }
+        return `<div style="width:68%;height:68%;display:flex;align-items:center;justify-content:center;opacity:.88">${HANGER_SVG}</div>`;
+    }
+
+    function renderArchiveThumbnail(dress) {
+        const getObj = (list, id) => list.find(it => it.id === id);
+        const body = getObj(WARDROBE_PARTS.body, dress.body);
+        const maker = getObj(WARDROBE_PARTS.maker, dress.maker);
+        const pants = getObj(WARDROBE_PARTS.pants, dress.pants);
+        const shoes = getObj(WARDROBE_PARTS.shoes, dress.shoes);
+        const top = getObj(WARDROBE_PARTS.top, dress.top);
+        const face = getObj(WARDROBE_PARTS.face, dress.face);
+        const hair = getObj(WARDROBE_PARTS.hair, dress.hair);
+
+        function layerHtml(obj) {
+            if (!obj || obj.isNone) return '';
+            if (obj.img) {
+                return `<img src="${obj.img}" alt="" onerror="this.style.display='none';">`;
+            }
+            return '';
+        }
+
+        const headArray = Array.isArray(dress.headwear) ? dress.headwear : (dress.headwear ? [dress.headwear] : []);
+        let headLayersHtml = '';
+        headArray.forEach(hId => {
+            const hObj = getObj(WARDROBE_PARTS.headwear, hId);
+            if (hObj && !hObj.isNone) headLayersHtml += `<div class="mini-layer">${layerHtml(hObj)}</div>`;
+        });
+
+        const accArray = Array.isArray(dress.accessory) ? dress.accessory : (dress.accessory ? [dress.accessory] : []);
+        let accLayersHtml = '';
+        accArray.forEach(accId => {
+            const accObj = getObj(WARDROBE_PARTS.accessory, accId);
+            if (accObj && !accObj.isNone) accLayersHtml += `<div class="mini-layer">${layerHtml(accObj)}</div>`;
+        });
+
+        const pantsHtml = layerHtml(pants);
+        const shoesHtml = layerHtml(shoes);
+        const isShoesOnTop = (dress.shoes === 'shoes_02' || dress.shoes === 'shoes_04' || dress.shoes === 'shoes_06');
+        const pantsAndShoesHtml = isShoesOnTop
+            ? `<div class="mini-layer">${pantsHtml}</div><div class="mini-layer">${shoesHtml}</div>`
+            : `<div class="mini-layer">${shoesHtml}</div><div class="mini-layer">${pantsHtml}</div>`;
+
+        return `
+            <div class="mini-model-thumb">
+                <div class="mini-layer">${layerHtml(body)}</div>
+                <div class="mini-layer">${layerHtml(maker)}</div>
+                ${pantsAndShoesHtml}
+                <div class="mini-layer">${layerHtml(top)}</div>
+                <div class="mini-layer">${layerHtml(face)}</div>
+                <div class="mini-layer">${layerHtml(hair)}</div>
+                ${headLayersHtml}
+                ${accLayersHtml}
+            </div>
+        `;
+    }
+
+    function renderCardsView() {
+        const container = document.getElementById('cards-container');
+        container.innerHTML = '';
+
+        if (mainMode === 'scatter') {
+            const items = WARDROBE_PARTS[activePart] || [];
+            items.forEach(item => {
+                const card = document.createElement('div');
+                let isSel = false;
+                if (activePart === 'headwear') {
+                    isSel = item.isNone
+                        ? (!currentDress.headwear || currentDress.headwear.length === 0)
+                        : (currentDress.headwear && currentDress.headwear.includes(item.id));
+                } else if (activePart === 'accessory') {
+                    isSel = item.isNone
+                        ? (!currentDress.accessory || currentDress.accessory.length === 0)
+                        : (currentDress.accessory && currentDress.accessory.includes(item.id));
+                } else {
+                    isSel = currentDress[activePart] === item.id;
+                }
+
+                card.className = `tall-card ${isSel ? 'selected' : ''}`;
+                card.innerHTML = `<div class="card-icon">${renderCardIconContent(item)}</div>
+                    <div class="card-tag">${item.isNone ? 'NONE' : (item.tag || '')}</div>`;
+
+                card.onclick = () => {
+                    playCuteSound('dress');
+                    if (activePart === 'headwear') {
+                        if (item.isNone) {
+                            currentDress.headwear = [];
+                            showToast('已脱下所有头饰');
+                        } else {
+                            if (!Array.isArray(currentDress.headwear)) currentDress.headwear = [];
+                            const idx = currentDress.headwear.indexOf(item.id);
+                            if (idx > -1) {
+                                currentDress.headwear.splice(idx, 1);
+                                showToast('已取下该头饰');
+                            } else {
+                                currentDress.headwear.push(item.id);
+                                showToast('头饰已叠戴上身');
+                            }
+                        }
+                    } else if (activePart === 'accessory') {
+                        if (item.isNone) {
+                            currentDress.accessory = [];
+                            showToast('已卸除所有配饰');
+                        } else {
+                            if (!Array.isArray(currentDress.accessory)) currentDress.accessory = [];
+                            const idx = currentDress.accessory.indexOf(item.id);
+                            if (idx > -1) {
+                                currentDress.accessory.splice(idx, 1);
+                                showToast('已卸下该配饰');
+                            } else {
+                                currentDress.accessory.push(item.id);
+                                showToast('配饰已叠穿上身');
+                            }
+                        }
+                    } else {
+                        currentDress[activePart] = item.id;
+                    }
+                    updateModelDisplay();
+                    renderCardsView();
+                };
+                container.appendChild(card);
+            });
+        } else {
+            const saves = JSON.parse(localStorage.getItem('miao_closet_saves_v16') || '[null,null,null,null,null]');
+            for (let i = 0; i < 5; i++) {
+                const card = document.createElement('div');
+                const saveItem = saves[i];
+                const hasSave = saveItem !== null && saveItem.dress !== undefined;
+                card.className = `tall-card ${hasSave ? 'selected archive-filled' : ''}`;
+
+                if (hasSave) {
+                    card.innerHTML = `
+                        <div class="card-icon">${renderArchiveThumbnail(saveItem.dress)}</div>
+                        <div class="card-archive-title">${saveItem.name || ('私服' + (i + 1))}</div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <div class="card-icon" style="opacity:.65">${HANGER_SVG}</div>
+                        <div class="card-archive-title" style="color:#B89065;font-weight:600;">点按存入</div>
+                    `;
+                }
+
+                const bindPressClear = () => {
+                    if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
+                };
+                card.addEventListener('pointerdown', (ev) => {
+                    if (!hasSave) return;
+                    pressTimer = setTimeout(() => {
+                        pressTimer = null;
+                        openArchiveAction(i, saveItem.name);
+                    }, 560);
+                });
+                card.addEventListener('pointerup', bindPressClear);
+                card.addEventListener('pointerleave', bindPressClear);
+                card.addEventListener('pointercancel', bindPressClear);
+
+                card.onclick = () => {
+                    if (pressTimer) bindPressClear();
+                    if (hasSave) {
+                        playCuteSound('dress');
+                        currentDress = JSON.parse(JSON.stringify(saveItem.dress));
+                        if (!Array.isArray(currentDress.headwear)) currentDress.headwear = [];
+                        if (!Array.isArray(currentDress.accessory)) currentDress.accessory = [];
+                        updateModelDisplay();
+                        showToast(`已换上：${saveItem.name}`);
+                    } else {
+                        playCuteSound('tap');
+                        savingSlotIndex = i;
+                        document.getElementById('custom-archive-name').value = `私服${i + 1}`;
+                        document.getElementById('archive-name-modal').style.display = 'flex';
+                    }
+                };
+                container.appendChild(card);
+            }
+        }
+    }
+
+    function confirmSaveArchive() {
+        if (savingSlotIndex < 0) return;
+        playCuteSound('fanfare');
+        const inputName = document.getElementById('custom-archive-name').value.trim() || `私服${savingSlotIndex + 1}`;
+        const saves = JSON.parse(localStorage.getItem('miao_closet_saves_v16') || '[null,null,null,null,null]');
+        saves[savingSlotIndex] = {
+            name: inputName,
+            dress: JSON.parse(JSON.stringify(currentDress))
+        };
+        localStorage.setItem('miao_closet_saves_v16', JSON.stringify(saves));
+        closeArchiveModal();
+        renderCardsView();
+        showToast(`已存入「${inputName}」`);
+    }
+
+    function closeArchiveModal() {
+        savingSlotIndex = -1;
+        document.getElementById('archive-name-modal').style.display = 'none';
+    }
+
+    function openArchiveAction(index, name) {
+        playCuteSound('tap');
+        actionSlotIndex = index;
+        document.getElementById('archive-action-title').innerText = name || ('私服' + (index + 1));
+        document.getElementById('archive-action-modal').style.display = 'flex';
+    }
+    function closeArchiveActionModal() {
+        actionSlotIndex = -1;
+        document.getElementById('archive-action-modal').style.display = 'none';
+    }
+    function overwriteArchiveSlot() {
+        if (actionSlotIndex < 0) return;
+        savingSlotIndex = actionSlotIndex;
+        const saves = JSON.parse(localStorage.getItem('miao_closet_saves_v16') || '[null,null,null,null,null]');
+        const old = saves[actionSlotIndex];
+        document.getElementById('custom-archive-name').value = (old && old.name) || `私服${actionSlotIndex + 1}`;
+        closeArchiveActionModal();
+        document.getElementById('archive-name-modal').style.display = 'flex';
+    }
+    function deleteArchiveSlot() {
+        if (actionSlotIndex < 0) return;
+        const saves = JSON.parse(localStorage.getItem('miao_closet_saves_v16') || '[null,null,null,null,null]');
+        saves[actionSlotIndex] = null;
+        localStorage.setItem('miao_closet_saves_v16', JSON.stringify(saves));
+        closeArchiveActionModal();
+        renderCardsView();
+        playCuteSound('pop');
+        showToast('该槽位已清空');
+    }
+
+    function layerMarkup(obj) {
+        if (!obj || obj.isNone || !obj.img) return '';
+        return `<div class="layer-sub-item"><img src="${obj.img}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><div style="display:none;width:100%;height:100%">${obj.svg || ''}</div></div>`;
+    }
+
+    function updateModelDisplay() {
+        const getObj = (list, id) => list.find(it => it.id === id);
+
+        document.getElementById('layer-body').innerHTML = layerMarkup(getObj(WARDROBE_PARTS.body, currentDress.body));
+        document.getElementById('layer-maker').innerHTML = layerMarkup(getObj(WARDROBE_PARTS.maker, currentDress.maker));
+
+        const pantsObj = getObj(WARDROBE_PARTS.pants, currentDress.pants);
+        const shoesObj = getObj(WARDROBE_PARTS.shoes, currentDress.shoes);
+        const pantsHtml = layerMarkup(pantsObj);
+        const shoesHtml = layerMarkup(shoesObj);
+        const sId = currentDress.shoes;
+        const isShoesOnTop = (sId === 'shoes_02' || sId === 'shoes_04' || sId === 'shoes_06');
+        const groupContainer = document.getElementById('layer-pants-shoes-group');
+        if (isShoesOnTop) {
+            groupContainer.innerHTML = `<div class="model-layer" id="layer-pants">${pantsHtml}</div><div class="model-layer" id="layer-shoes">${shoesHtml}</div>`;
+        } else {
+            groupContainer.innerHTML = `<div class="model-layer" id="layer-shoes">${shoesHtml}</div><div class="model-layer" id="layer-pants">${pantsHtml}</div>`;
+        }
+
+        document.getElementById('layer-top').innerHTML = layerMarkup(getObj(WARDROBE_PARTS.top, currentDress.top));
+        document.getElementById('layer-face').innerHTML = layerMarkup(getObj(WARDROBE_PARTS.face, currentDress.face));
+        document.getElementById('layer-hair').innerHTML = layerMarkup(getObj(WARDROBE_PARTS.hair, currentDress.hair));
+
+        const headArray = Array.isArray(currentDress.headwear) ? currentDress.headwear : (currentDress.headwear ? [currentDress.headwear] : []);
+        let headHtml = '';
+        headArray.forEach(hId => { headHtml += layerMarkup(getObj(WARDROBE_PARTS.headwear, hId)); });
+        document.getElementById('layer-headwear').innerHTML = headHtml;
+
+        const accArray = Array.isArray(currentDress.accessory) ? currentDress.accessory : (currentDress.accessory ? [currentDress.accessory] : []);
+        let accHtml = '';
+        accArray.forEach(accId => { accHtml += layerMarkup(getObj(WARDROBE_PARTS.accessory, accId)); });
+        document.getElementById('layer-accessory').innerHTML = accHtml;
+    }
+
+    function randomizeOutfit() {
+        playCuteSound('fanfare');
+        const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+        currentDress.body = rand(WARDROBE_PARTS.body).id;
+        currentDress.maker = rand(WARDROBE_PARTS.maker).id;
+        currentDress.pants = rand(WARDROBE_PARTS.pants).id;
+        currentDress.shoes = rand(WARDROBE_PARTS.shoes).id;
+        currentDress.top = rand(WARDROBE_PARTS.top).id;
+        currentDress.face = rand(WARDROBE_PARTS.face).id;
+        currentDress.hair = rand(WARDROBE_PARTS.hair).id;
+
+        const validHeads = WARDROBE_PARTS.headwear.filter(h => !h.isNone);
+        const headCount = Math.floor(Math.random() * 3);
+        const pickedHeads = [];
+        for (let i = 0; i < headCount; i++) {
+            const pick = rand(validHeads).id;
+            if (!pickedHeads.includes(pick)) pickedHeads.push(pick);
+        }
+        currentDress.headwear = pickedHeads;
+
+        const validAccs = WARDROBE_PARTS.accessory.filter(a => !a.isNone);
+        const count = Math.floor(Math.random() * 3);
+        const picked = [];
+        for (let i = 0; i < count; i++) {
+            const pick = rand(validAccs).id;
+            if (!picked.includes(pick)) picked.push(pick);
+        }
+        currentDress.accessory = picked;
+
+        const model = document.getElementById('model-display');
+        model.style.animation = 'none';
+        model.style.opacity = '0.35';
+        model.style.transform = 'scale(0.975)';
+        requestAnimationFrame(() => {
+            updateModelDisplay();
+            renderCardsView();
+            model.style.transition = 'opacity .24s ease, transform .24s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            model.style.opacity = '1';
+            model.style.transform = 'scale(1)';
+            setTimeout(() => {
+                model.style.transition = '';
+                model.style.animation = '';
+            }, 260);
+        });
+        showToast('随机穿搭搞定');
+    }
+
+    function resetOutfit() {
+        playCuteSound('pop');
+        currentDress = JSON.parse(JSON.stringify(DEFAULT_DRESS));
+        updateModelDisplay();
+        renderCardsView();
+        showToast('已恢复经典造型');
+    }
+
+    function openPolaroidPoster() {
+        playCuteSound('shutter');
+        const flash = document.getElementById('shutter-flash');
+        flash.style.display = 'block';
+        flash.style.opacity = '1';
+        setTimeout(() => { flash.style.transition = 'opacity .28s ease'; flash.style.opacity = '0'; }, 40);
+        setTimeout(() => { flash.style.display = 'none'; flash.style.transition = ''; }, 360);
+        renderCanvasToImage();
+        document.getElementById('poster-mask').style.display = 'flex';
+    }
+
+    function updatePhotoWithID() {
+        playCuteSound('tap');
+        renderCanvasToImage();
+        showToast('署名已更新');
+    }
+
+    function renderCanvasToImage() {
+        const cvs = document.getElementById('hidden-canvas');
+        const ctx = cvs.getContext('2d');
+        const S = 720;
+
+        ctx.fillStyle = '#EFE5D7';
+        ctx.fillRect(0, 0, S, S);
+        ctx.fillStyle = '#FFFBF5';
+        ctx.fillRect(28, 28, S - 56, S - 56);
+
+        ctx.save();
+        ctx.font = '600 13px -apple-system, sans-serif';
+        ctx.fillStyle = '#B0957F';
+        ctx.textAlign = 'center';
+        ctx.letterSpacing = '4.5px';
+        ctx.fillText('XIE MIAO  CLOSET', S / 2, 64);
+        ctx.restore();
+
+        ctx.save();
+        ctx.font = '900 28px -apple-system, sans-serif';
+        ctx.fillStyle = '#E25E1B';
+        ctx.textAlign = 'center';
+        ctx.fillText('奇迹苗哥', S / 2, 102);
+        ctx.restore();
+
+        const frameSize = 430;
+        const frameX = (S - frameSize) / 2;
+        const frameY = 128;
+        ctx.save();
+        ctx.fillStyle = '#F8F2EB';
+        ctx.fillRect(frameX, frameY, frameSize, frameSize);
+        ctx.restore();
+
+        function drawCuteTape(cx, cy, angleDeg) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(angleDeg * Math.PI / 180);
+            ctx.fillStyle = 'rgba(243, 179, 164, 0.9)';
+            ctx.beginPath();
+            ctx.roundRect(-36, -8, 72, 16, [4]);
+            ctx.fill();
+            ctx.restore();
+        }
+        drawCuteTape(frameX + 18, frameY + 10, -24);
+        drawCuteTape(frameX + frameSize - 18, frameY + 10, 24);
+
+        const renderW = 340;
+        const renderH = (340 / 220) * 260;
+        const drawX = frameX + (frameSize - renderW) / 2;
+        const drawY = frameY + (frameSize - renderH) - 6;
+
+        const sId = currentDress.shoes;
+        const isShoesOnTop = (sId === 'shoes_02' || sId === 'shoes_04' || sId === 'shoes_06');
+        const layerIdsBeforePantsShoes = ['layer-body', 'layer-maker'];
+        const layerIdsAfterPantsShoes = ['layer-top', 'layer-face', 'layer-hair', 'layer-headwear', 'layer-accessory'];
+
+        function drawContainerElements(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const imgs = container.querySelectorAll('img');
+            imgs.forEach(imgEl => {
+                if (imgEl && imgEl.complete && imgEl.naturalWidth > 0 && imgEl.style.display !== 'none') {
+                    try { ctx.drawImage(imgEl, drawX, drawY, renderW, renderH); } catch (e) {}
+                }
+            });
+        }
+
+        layerIdsBeforePantsShoes.forEach(id => drawContainerElements(id));
+        if (isShoesOnTop) {
+            drawContainerElements('layer-pants');
+            drawContainerElements('layer-shoes');
+        } else {
+            drawContainerElements('layer-shoes');
+            drawContainerElements('layer-pants');
+        }
+        layerIdsAfterPantsShoes.forEach(id => drawContainerElements(id));
+
+        const userNick = (document.getElementById('nickname-input')?.value.trim()) || '林科森';
+        const now = new Date();
+        const dateStr = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
+
+        ctx.save();
+        ctx.font = '700 18px -apple-system, sans-serif';
+        ctx.fillStyle = '#6A5043';
+        ctx.textAlign = 'center';
+        ctx.fillText(`搭配师  ${userNick}`, S / 2, 596);
+        ctx.font = '600 13px -apple-system, sans-serif';
+        ctx.fillStyle = '#B0957F';
+        ctx.fillText(`演员谢苗超话  ·  ${dateStr}`, S / 2, 624);
+        ctx.restore();
+
+        const photoUrl = cvs.toDataURL('image/png');
+        document.getElementById('final-photo-img').src = photoUrl;
+    }
+
+    function closePoster() {
+        playCuteSound('pop');
+        document.getElementById('poster-mask').style.display = 'none';
+    }
+
+    let toastTimer;
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        clearTimeout(toastTimer);
+        t.innerText = msg;
+        t.style.opacity = 1;
+        toastTimer = setTimeout(() => t.style.opacity = 0, 1700);
+    }
+
+    let sharedAudio = null;
+    function getAudio() {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return null;
+        if (!sharedAudio) sharedAudio = new AudioCtx();
+        if (sharedAudio.state === 'suspended') sharedAudio.resume();
+        return sharedAudio;
+    }
+
+    function playCuteSound(type) {
+        try {
+            const ctx = getAudio();
+            if (!ctx) return;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            const now = ctx.currentTime;
+
+            if (type === 'tap') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(520, now);
+                gain.gain.setValueAtTime(0.045, now);
+                gain.gain.linearRampToValueAtTime(0.001, now + 0.04);
+                osc.start(now); osc.stop(now + 0.04);
+            } else if (type === 'dress') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(392, now);
+                osc.frequency.exponentialRampToValueAtTime(523, now + 0.09);
+                gain.gain.setValueAtTime(0.07, now);
+                gain.gain.linearRampToValueAtTime(0.001, now + 0.1);
+                osc.start(now); osc.stop(now + 0.1);
+            } else if (type === 'fanfare') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(392, now);
+                osc.frequency.setValueAtTime(523, now + 0.07);
+                osc.frequency.setValueAtTime(659, now + 0.14);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.linearRampToValueAtTime(0.001, now + 0.22);
+                osc.start(now); osc.stop(now + 0.22);
+            } else if (type === 'shutter') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(720, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.07);
+                gain.gain.setValueAtTime(0.05, now);
+                gain.gain.linearRampToValueAtTime(0.001, now + 0.07);
+                osc.start(now); osc.stop(now + 0.07);
+            } else {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(360, now);
+                osc.frequency.exponentialRampToValueAtTime(500, now + 0.07);
+                gain.gain.setValueAtTime(0.05, now);
+                gain.gain.linearRampToValueAtTime(0.001, now + 0.07);
+                osc.start(now); osc.stop(now + 0.07);
+            }
+        } catch (e) {}
+    }
+</script>
+</body>
+</html>
