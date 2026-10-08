@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>奇迹苗哥·演员谢苗超话</title>
+    <title>神之衣橱</title>
     <style>
         :root {
             /* ===== 高阶轻奢手帐色系 ===== */
@@ -616,11 +616,11 @@
         <div class="intro-stamp">
             <img src="images/avatar-logo.png" alt="" onerror="handleLogoFallback(this)">
         </div>
-        <div class="intro-kicker">演员谢苗超话</div>
-        <div class="intro-title-1">奇迹苗哥</div>
+        <div class="intro-kicker">叶修同人换装游戏</div>
+        <div class="intro-title-1">神之衣橱</div>
         <div class="intro-rule"></div>
         <button class="intro-enter-btn" id="enter-game-btn">进入游戏</button>
-        <div class="intro-credit">制作 林科森 | 制图 左海</div>
+        <div class="intro-credit">By 左海</div>
     </div>
 </div>
 
@@ -631,8 +631,8 @@
                 <img src="images/avatar-logo.png" alt="" onerror="handleLogoFallback(this)">
             </div>
             <div class="title-group">
-                <h1>奇迹苗哥</h1>
-                <div class="subtitle">演员谢苗超话</div>
+                <h1>神之衣橱</h1>
+                <div class="subtitle">左海倾情奉献</div>
             </div>
         </div>
         <div class="header-layout">
@@ -688,7 +688,7 @@
 </div>
 
 <div id="poster-mask">
-    <img id="final-photo-img" alt="苗哥写真" src="" />
+    <img id="final-photo-img" alt="神之写真" src="" />
     <div class="user-id-wrapper">
         <span>署名</span>
         <input type="text" id="nickname-input" class="user-id-input" maxlength="8" value="林科森" placeholder="输入ID" />
@@ -744,7 +744,7 @@
         if (parent && !parent.querySelector('.badge-text')) {
             const span = document.createElement('span');
             span.className = 'badge-text';
-            span.innerText = '苗';
+            span.innerText = '叶';
             parent.appendChild(span);
         }
     }
@@ -801,13 +801,8 @@
 
     const partLabels = [
         { key: 'body', label: '素体' },
-        { key: 'maker', label: '妆容' },
-        { key: 'hair', label: '发型' },
-        { key: 'face', label: '五官' },
         { key: 'top', label: '上装' },
-        { key: 'pants', label: '下装' },
-        { key: 'shoes', label: '鞋袜' },
-        { key: 'headwear', label: '头饰' },
+        { key: 'pants', label: '边框' },
         { key: 'accessory', label: '配饰' }
     ];
 
@@ -951,7 +946,7 @@
         mask.style.opacity = '0';
         mask.style.transform = 'scale(1.04)';
         setTimeout(() => { mask.style.display = 'none'; }, 480);
-        showToast('一起装扮苗哥吧');
+        showToast('一起装扮叶修吧');
     }
 
     function initStageCanvas() {
@@ -1406,7 +1401,7 @@
         ctx.font = '900 28px -apple-system, sans-serif';
         ctx.fillStyle = '#E25E1B';
         ctx.textAlign = 'center';
-        ctx.fillText('奇迹苗哥', S / 2, 102);
+        ctx.fillText('神之衣橱', S / 2, 102);
         ctx.restore();
 
         const frameSize = 430;
@@ -1472,7 +1467,7 @@
         ctx.fillText(`搭配师  ${userNick}`, S / 2, 596);
         ctx.font = '600 13px -apple-system, sans-serif';
         ctx.fillStyle = '#B0957F';
-        ctx.fillText(`演员谢苗超话  ·  ${dateStr}`, S / 2, 624);
+        ctx.fillText(`神之衣橱  ·  ${dateStr}`, S / 2, 624);
         ctx.restore();
 
         const photoUrl = cvs.toDataURL('image/png');
